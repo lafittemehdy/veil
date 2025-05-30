@@ -1,0 +1,27 @@
+{
+  "compilerOptions": {
+    "target": "ES2020",
+    "useDefineForClassFields": true,
+    "lib": ["ES2020", "DOM", "DOM.Iterable"],
+    "module": "NodeNext", // Changed from ESNext
+    "jsx": "react-jsx",
+    "skipLibCheck": true,
+    "isolatedModules": true, // Important for Vite and transpilers
+    "esModuleInterop": true, // Often helps with CJS/ESM interop
+    "allowSyntheticDefaultImports": true, // For React default import
+    "moduleResolution": "NodeNext", // Modern resolution
+    "allowImportingTsExtensions": true, // Add this
+    "resolveJsonModule": true,
+    "strict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noFallthroughCasesInSwitch": true,
+    "noEmit": true, // Add back noEmit as allowImportingTsExtensions requires it or emitDeclarationOnly
+    // Declaration options are handled by vite-plugin-dts
+  },
+  "include": ["src"],
+  "exclude": ["node_modules", "dist"]
+  // "references": [
+  //   { "path": "./tsconfig.node.json" }
+  // ] // Removed to simplify library tsconfig
+}

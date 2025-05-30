@@ -1,0 +1,18 @@
+.roundedLeftClipWrapper {
+    align-items: center;
+    aspect-ratio: 2 / 3;
+    display: flex;
+    justify-content: center;
+    overflow: hidden; /* Important for clip-path to work */
+    clip-path: url(#react-veil-rounded-left-definition); /* Will match the ID in RoundedLeftClip.tsx */
+    width: 100%; /* Default width, can be overridden by parent */
+    height: auto; /* Maintain aspect ratio */
+}
+
+/* Styles for the content passed as children, if needed */
+.roundedLeftClipWrapper > :first-child {
+    display: block; /* Ensure block behavior for sizing */
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Good default for images/videos */
+}
