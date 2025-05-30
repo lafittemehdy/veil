@@ -1,54 +1,69 @@
-# React + TypeScript + Vite
+# React Veil 🖼️
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+[![npm version](https://badge.fury.io/js/react-veil.svg)](https://badge.fury.io/js/react-veil)
+[![pages-build-deployment](https://github.com/lafittemehdy/veil/actions/workflows/pages/pages-build-deployment/badge.svg?branch=main)](https://github.com/lafittemehdy/veil/actions/workflows/pages/pages-build-deployment)
 
-Currently, two official plugins are available:
+Simple React components for framing your images and videos with SVG clip-paths.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+**[✨ Live Demo & Docs ✨](https://lafittemehdy.github.io/veil/)**
 
-## Expanding the ESLint configuration
+## What it is
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+`react-veil` gives you a few wrapper components to easily apply stylish SVG frames to your media.
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+*   `ArchClip`
+*   `RoundedRectangleClip`
+*   `RoundedLeftClip`
+
+They're SVG-based, so they scale nicely and are lightweight. They use a `2:3` (portrait) aspect ratio by default.
+
+## Installation
+
+```bash
+npm install react-veil
+# or
+yarn add react-veil
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Usage
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+Import the component you need and the library's CSS. Then, wrap your media element.
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
+```jsx
+import { ArchClip } from 'react-veil';
+import 'react-veil/style.css'; // Main styles for the components
+
+// Example in your component:
+// You can control the size of the Veil component via its parent.
+// The Veil component itself will take up 100% width of its parent.
+<div style={{ width: '300px' /* or any size you need */ }}>
+  <ArchClip>
+    <img src="your-image.jpg" alt="My pic" />
+  </ArchClip>
+</div>
+
+// Works with videos too!
+<div style={{ width: '300px' }}>
+  <RoundedRectangleClip>
+    <video src="your-video.mp4" autoPlay loop muted playsInline />
+  </RoundedRectangleClip>
+</div>
 ```
+Use `ArchClip`, `RoundedRectangleClip`, or `RoundedLeftClip` around your `<img>`, `<video>`, or even Next.js `<Image>` tags.
+
+## Props
+
+For the clipping components (`ArchClip`, `RoundedRectangleClip`, `RoundedLeftClip`):
+
+*   `children`: `ReactNode` (Required) - Your image or video element.
+*   `className`: `string` (Optional) - Custom CSS classes for the wrapper.
+
+Check the **[Docs Site](https://lafittemehdy.github.io/veil/)** for live examples.
+
+## Contributing
+
+This library is part of the [Veil Monorepo](https://github.com/lafittemehdy/veil). Contributions are welcome there.
+
+## License
+
+MIT. See [LICENSE](https://github.com/lafittemehdy/veil/blob/main/LICENSE) in the main repo.

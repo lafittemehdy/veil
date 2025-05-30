@@ -21,9 +21,9 @@
   },
   "exports": {
     ".": {
+      "types": "./dist/index.d.ts",
       "import": "./dist/react-veil.js",
-      "require": "./dist/react-veil.umd.cjs",
-      "types": "./dist/index.d.ts"
+      "require": "./dist/react-veil.umd.cjs"
     },
     "./style.css": "./dist/react-veil.css"
   },

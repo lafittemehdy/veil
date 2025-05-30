@@ -19,6 +19,7 @@ export default defineConfig({
       formats: ['es', 'umd'],
       fileName: (format) => `react-veil.${format === 'es' ? 'js' : 'umd.cjs'}`,
     },
+    // cssCodeSplit: false, // We will handle CSS injection manually
     rollupOptions: {
       external: ['react', 'react-dom', 'react-icons'],
       output: {

@@ -7,5 +7,8 @@ export default defineConfig({
   base: '/veil/', // This matches lafittemehdy.github.io/veil/
   server: {
     port: 3001
+  },
+  optimizeDeps: {
+    exclude: ['react-veil']
   }
 })

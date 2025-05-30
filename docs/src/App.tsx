@@ -3,9 +3,9 @@ import './App.css';
 import {
   ArchClip,
   RoundedRectangleClip,
-  RoundedLeftClip,
-  ThemeToggle
+  RoundedLeftClip
 } from 'react-veil'; // Import from the library package
+import ThemeToggle from './components/ThemeToggle'; // Import local component
 
 type Theme = 'light' | 'dark';
 
