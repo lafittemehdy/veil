@@ -1,0 +1,36 @@
+# IDEs and editors
+.idea/
+.vscode/
+*.sublime-project
+*.sublime-workspace
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Node
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+package-lock.json # If collaborators use different npm versions, or if you prefer to commit it, remove this.
+# yarn.lock # Uncomment if using Yarn
+# pnpm-lock.yaml # Uncomment if using pnpm
+
+# Build output
+dist/
+build/
+out/
+coverage/
+*.tgz
+
+# Environment variables
+.env
+.env*.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# TypeScript
+*.tsbuildinfo
