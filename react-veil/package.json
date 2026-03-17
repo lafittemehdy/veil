@@ -1,24 +1,26 @@
 {
-  "author": "Mehdy Lafitte",
+  "author": {
+    "name": "Mehdy Lafitte",
+    "url": "https://github.com/lafittemehdy"
+  },
   "bugs": {
     "url": "https://github.com/lafittemehdy/veil/issues"
   },
-  "dependencies": {
-    "react-icons": "^5.5.0"
-  },
   "description": "A collection of clean SVG clip paths for framing images and videos. Adds a modern touch and personality to your visual content. Scalable and easy to integrate.",
   "devDependencies": {
-    "@types/node": "^20.15.0",
-    "@types/react": "^19.1.2",
-    "@types/react-dom": "^19.1.2",
-    "@vitejs/plugin-react": "^4.4.1",
-    "eslint": "^9.25.0",
-    "eslint-plugin-react-hooks": "^5.2.0",
-    "eslint-plugin-react-refresh": "^0.4.19",
-    "typescript": "~5.8.3",
-    "typescript-eslint": "^8.33.0",
-    "vite": "^6.3.5",
-    "vite-plugin-dts": "^4.5.4"
+    "@testing-library/jest-dom": "^6.9.1",
+    "@testing-library/react": "^16.3.2",
+    "@types/node": "^22.15.0",
+    "@types/react": "^19.2.14",
+    "@types/react-dom": "^19.2.3",
+    "@vitejs/plugin-react": "^6.0.1",
+    "jsdom": "^28.1.0",
+    "react": "^19.2.4",
+    "react-dom": "^19.2.4",
+    "typescript": "^5.9.3",
+    "vite": "^8.0.0",
+    "vite-plugin-dts": "^4.5.4",
+    "vitest": "^4.1.0"
   },
   "exports": {
     ".": {
@@ -29,13 +31,16 @@
     "./style.css": "./dist/react-veil.css"
   },
   "files": [
-    "dist"
+    "dist",
+    "src"
   ],
-  "homepage": "https://github.com/lafittemehdy/veil/tree/main/packages/react-veil#readme",
+  "homepage": "https://github.com/lafittemehdy/veil#readme",
   "keywords": [
     "clip-path",
     "components",
+    "frames",
     "react",
+    "svg",
     "ui",
     "veil"
   ],
@@ -47,7 +52,9 @@
     "react": "^18.0.0 || ^19.0.0",
     "react-dom": "^18.0.0 || ^19.0.0"
   },
-  "private": false,
+  "publishConfig": {
+    "access": "public"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/lafittemehdy/veil.git"
@@ -55,10 +62,13 @@
   "scripts": {
     "build": "vite build",
     "dev": "vite build --watch",
-    "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
+    "lint": "eslint .",
+    "prepublishOnly": "npm run build",
+    "test": "vitest run",
+    "test:watch": "vitest",
     "typecheck": "tsc --noEmit"
   },
   "type": "module",
   "types": "./dist/index.d.ts",
-  "version": "0.1.0"
+  "version": "0.1.1"
 }
