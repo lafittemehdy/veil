@@ -1,35 +1,38 @@
-import { defineConfig } from 'vite';
-import react from '@vitejs/plugin-react';
-import dts from 'vite-plugin-dts';
-import * as path from 'path'; // Use namespace import for path
-import { fileURLToPath } from 'url'; // To get __dirname equivalent
+/**
+ * Build configuration for the react-veil library.
+ */
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
 
-// https://vite.dev/config/
+import react from '@vitejs/plugin-react';
+import { defineConfig } from 'vite';
+import dts from 'vite-plugin-dts';
+
 export default defineConfig({
-  plugins: [
-    react(),
-    dts({
-      insertTypesEntry: true,
-    }),
-  ],
   build: {
     lib: {
-      entry: path.resolve(path.dirname(fileURLToPath(import.meta.url)), 'src/index.ts'),
-      name: 'ReactVeil',
-      formats: ['es', 'umd'],
+      entry: path.resolve(
+        path.dirname(fileURLToPath(import.meta.url)),
+        'src/index.ts',
+      ),
       fileName: (format) => `react-veil.${format === 'es' ? 'js' : 'umd.cjs'}`,
+      formats: ['es', 'umd'],
+      name: 'ReactVeil',
     },
-    // cssCodeSplit: false, // We will handle CSS injection manually
     rollupOptions: {
-      external: ['react', 'react-dom', 'react-icons'],
+      external: [/^react(-dom)?(\/.*)?$/],
       output: {
         globals: {
-          react: 'React',
+          'react': 'React',
           'react-dom': 'ReactDOM',
-          'react-icons': 'ReactIcons',
+          'react/jsx-runtime': 'ReactJSXRuntime',
         },
       },
     },
     sourcemap: true,
   },
+  plugins: [
+    react(),
+    dts({ exclude: ['src/__tests__'], insertTypesEntry: true }),
+  ],
 });

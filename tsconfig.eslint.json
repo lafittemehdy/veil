@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+    "jsx": "react-jsx",
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+    "noEmit": true,
+    "skipLibCheck": true,
+    "strict": true
+  },
+  "include": [
+    "docs/src",
+    "docs/vite.config.ts",
+    "react-veil/src",
+    "react-veil/vite.config.ts",
+    "react-veil/vitest.config.ts"
+  ]
+}

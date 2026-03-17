@@ -1,28 +1,24 @@
-import React, { type ReactNode } from 'react';
-import styles from './RoundedLeftClip.module.css';
+/** Rounded-left clip-path component. */
+import type { FC } from 'react';
 
-interface RoundedLeftClipProps {
-  children: ReactNode;
-  className?: string; // Allow for additional custom styling
-}
+import type { ClipBaseProps } from './ClipBase';
+import ClipBase from './ClipBase';
 
-const RoundedLeftClip: React.FC<RoundedLeftClipProps> = ({ children, className }) => {
-  const clipPathId = "react-veil-rounded-left-definition";
+/**
+ * Rounded-left shape: flat top-left, rounded top-right and bottom-right curves.
+ * M 0,0 → L 0.5,0 — flat top edge to midpoint
+ * A → 1,0.333     — rounded top-right corner
+ * L 1,1 → 0.5,1   — right side and bottom edge
+ * A → 0,0.667     — rounded bottom-left corner
+ */
+const ROUNDED_LEFT_SHAPE = {
+  clipPathId: 'react-veil-rounded-left-definition',
+  pathData: 'M 0,0 L 0.5,0 A 0.5,0.333 0 0,1 1,0.333 L 1,1 L 0.5,1 A 0.5,0.333 0 0,1 0,0.667 Z',
+} as const;
 
-  return (
-    <>
-      <svg width="0" height="0" style={{ position: 'absolute', zIndex: -1, opacity: 0, pointerEvents: 'none' }} aria-hidden="true">
-        <defs>
-          <clipPath id={clipPathId} clipPathUnits="objectBoundingBox">
-            <path d="M 0,0 L 0.5,0 A 0.5,0.333 0 0,1 1,0.333 L 1,1 L 0.5,1 A 0.5,0.333 0 0,1 0,0.667 Z" />
-          </clipPath>
-        </defs>
-      </svg>
-      <div className={`${styles.roundedLeftClipWrapper} ${className || ''}`.trim()}>
-        {children}
-      </div>
-    </>
-  );
-};
+/** Clips children into a rounded-left shape. */
+const RoundedLeftClip: FC<ClipBaseProps> = (props) => (
+  <ClipBase shape={ROUNDED_LEFT_SHAPE} {...props} />
+);
 
 export default RoundedLeftClip;

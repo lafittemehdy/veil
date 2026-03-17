@@ -1,75 +1,77 @@
 .toggleTrack {
-  cursor: pointer;
-  width: 70px;
-  height: 34px;
-  /* Default subtle background for light theme */
-  background-color: var(--toggle-track-bg, rgba(180, 180, 180, 0.25)); 
-  display: flex;
   align-items: center;
-  justify-content: space-between; 
+  background-color: var(--toggle-track-bg, rgba(180, 180, 180, 0.25));
   border-radius: 34px;
-  padding: 0 8px; 
+  box-sizing: border-box;
+  cursor: pointer;
+  display: flex;
+  height: 34px;
+  justify-content: space-between;
+  padding: 0 8px;
   position: relative;
   transition: background-color 0.3s ease;
-  box-sizing: border-box;
+  width: 70px;
 }
 
-/* Track background for dark theme - slightly more opaque */
 .dark-theme .toggleTrack {
-  --toggle-track-bg: rgba(100, 100, 100, 0.35); 
+  --toggle-track-bg: rgba(100, 100, 100, 0.35);
 }
-/* Track background for light theme (can be same as default or slightly different) */
+
 .light-theme .toggleTrack {
   --toggle-track-bg: rgba(180, 180, 180, 0.25);
 }
 
-
 .toggleThumb {
-  width: 28px; 
-  height: 28px;
-  /* Default thumb background for light theme */
-  background-color: var(--toggle-thumb-bg, rgba(255, 255, 255, 0.85)); 
+  background-color: var(--toggle-thumb-bg, rgba(255, 255, 255, 0.85));
   border-radius: 50%;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+  height: 28px;
+  left: 3px;
   position: absolute;
-  top: 50%; 
-  transform: translateY(-50%); 
-  left: 3px; 
+  top: 50%;
+  transform: translateY(-50%);
   transition: transform 0.3s ease, background-color 0.3s ease;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.2); /* Slightly more pronounced shadow for definition */
-  z-index: 1; 
+  width: 28px;
+  z-index: 1;
 }
 
-/* Thumb background for dark theme - slightly more opaque */
 .dark-theme .toggleThumb {
   --toggle-thumb-bg: rgba(220, 220, 220, 0.75);
 }
+
 .light-theme .toggleThumb {
-   --toggle-thumb-bg: rgba(255, 255, 255, 0.85);
+  --toggle-thumb-bg: rgba(255, 255, 255, 0.85);
 }
 
-
-.toggleThumb.dark { /* This class is applied by JS to the thumb itself */
-  transform: translate(36px, -50%); 
+.toggleThumb.dark {
+  transform: translate(36px, -50%);
 }
 
 .iconContainer {
-  display: flex;
   align-items: center;
-  justify-content: center;
+  display: flex;
   height: 100%;
-  z-index: 0; 
+  justify-content: center;
+  z-index: 0;
+}
+
+.iconLeft {
+  margin-right: auto;
+}
+
+.iconRight {
+  margin-left: auto;
 }
 
 .icon {
-  font-size: 16px; 
+  font-size: 16px;
   transition: color 0.3s ease;
 }
 
-/* Icon colors based on the main page theme */
-.dark-theme .icon { /* Icons when the page is in dark theme */
-  color: var(--toggle-icon-dark-theme-color, rgba(255, 255, 255, 0.65)); /* Brighter for dark theme */
+.dark-theme .icon {
+  color: var(--toggle-icon-dark-theme-color, rgba(255, 255, 255, 0.65));
 }
 
-.light-theme .icon { /* Icons when the page is in light theme */
-   color: var(--toggle-icon-light-theme-color, rgba(0, 0, 0, 0.5)); /* Darker for light theme */
+.light-theme .icon {
+  color: var(--toggle-icon-light-theme-color, rgba(0, 0, 0, 0.5));
 }
