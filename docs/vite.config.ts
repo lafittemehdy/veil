@@ -1,14 +1,25 @@
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react'
+/**
+ * Build configuration for the demo/docs Vite app.
+ */
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
 
-// https://vite.dev/config/
+import react from '@vitejs/plugin-react';
+import { defineConfig } from 'vite';
+
+const ROOT_DIR = path.dirname(fileURLToPath(import.meta.url));
+
 export default defineConfig({
+  base: '/veil/',
   plugins: [react()],
-  base: '/veil/', // This matches lafittemehdy.github.io/veil/
-  server: {
-    port: 3001
+  resolve: {
+    alias: {
+      react: path.resolve(ROOT_DIR, '../node_modules/react'),
+      'react-dom': path.resolve(ROOT_DIR, '../node_modules/react-dom'),
+    },
+    dedupe: ['react', 'react-dom'],
   },
-  optimizeDeps: {
-    exclude: ['react-veil']
-  }
-})
+  server: {
+    port: 3001,
+  },
+});

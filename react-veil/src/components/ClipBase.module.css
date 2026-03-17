@@ -1,0 +1,16 @@
+.clipWrapper {
+  align-items: center;
+  aspect-ratio: 2 / 3;
+  display: flex;
+  height: auto;
+  justify-content: center;
+  overflow: hidden;
+  width: 100%;
+}
+
+.clipWrapper > :first-child {
+  display: block;
+  height: 100%;
+  object-fit: cover;
+  width: 100%;
+}

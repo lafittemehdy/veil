@@ -1,9 +1,15 @@
 {
   "description": "Monorepo for Veil projects (react-veil library and docs)",
   "devDependencies": {
-    "eslint": "^9.25.0",
+    "@eslint/js": "^9.39.3",
+    "@typescript-eslint/eslint-plugin": "^8.57.0",
+    "@typescript-eslint/parser": "^8.57.0",
+    "eslint": "^9.39.3",
+    "eslint-plugin-react-hooks": "^7.0.1",
+    "eslint-plugin-react-refresh": "^0.5.2",
     "gh-pages": "^6.3.0",
-    "typescript": "~5.8.3"
+    "globals": "^17.4.0",
+    "typescript": "^5.9.3"
   },
   "name": "veil-monorepo",
   "private": true,
@@ -12,10 +18,12 @@
     "build:lib": "npm run build --workspace=react-veil",
     "deploy:docs": "npm run deploy --workspace=docs",
     "dev:docs": "npm run dev --workspace=docs",
-    "lint": "npm run lint --workspaces --if-present",
-    "typecheck": "npm run typecheck --workspaces --if-present"
+    "lint": "eslint .",
+    "test": "npm test --workspace=react-veil --if-present",
+    "typecheck": "npm run typecheck --workspace=react-veil && npm run typecheck --workspace=docs"
   },
-  "version": "0.1.0",
+  "type": "module",
+  "version": "0.1.1",
   "workspaces": [
     "docs",
     "react-veil"

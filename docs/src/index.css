@@ -1,44 +1,39 @@
 :root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
-
-  /* Default theme variables (Light theme) */
   --background-color: #ffffff;
-  --text-color: #213547;
   --button-background: #f9f9f9;
-  --button-text: #213547;
   --button-hover-border: #747bff;
-  --toggle-track-bg: rgba(180, 180, 180, 0.25);
-  --toggle-thumb-bg: rgba(255, 255, 255, 0.85);
+  --button-text: #213547;
+  --text-color: #213547;
   --toggle-icon-light-theme-color: rgba(0, 0, 0, 0.5);
+  --toggle-thumb-bg: rgba(255, 255, 255, 0.85);
+  --toggle-track-bg: rgba(180, 180, 180, 0.25);
 
-
-  color-scheme: light dark;
-  color: var(--text-color);
-  background-color: var(--background-color);
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  color-scheme: light dark;
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-synthesis: none;
+  font-weight: 400;
+  line-height: 1.5;
+  text-rendering: optimizeLegibility;
 }
 
-/* Dark theme variables & overrides */
 .dark-theme {
   --background-color: #121212;
-  --text-color: rgba(255, 255, 255, 0.87);
   --button-background: #1a1a1a;
-  --button-text: rgba(255, 255, 255, 0.87);
   --button-hover-border: #646cff;
-  --toggle-track-bg: rgba(100, 100, 100, 0.35);
-  --toggle-thumb-bg: rgba(220, 220, 220, 0.75);
+  --button-text: rgba(255, 255, 255, 0.87);
+  --text-color: rgba(255, 255, 255, 0.87);
   --toggle-icon-dark-theme-color: rgba(255, 255, 255, 0.65);
+  --toggle-thumb-bg: rgba(220, 220, 220, 0.75);
+  --toggle-track-bg: rgba(100, 100, 100, 0.35);
 }
 
 a {
-  font-weight: 500;
   color: #646cff;
+  font-weight: 500;
   text-decoration: inherit;
 }
 
@@ -47,15 +42,15 @@ a:hover {
 }
 
 body {
-  margin: 0;
-  display: flex;
-  flex-direction: column;
   align-items: center;
-  justify-content: flex-start;
-  min-width: 320px;
-  min-height: 100vh;
   background: var(--background-color);
   color: var(--text-color);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  margin: 0;
+  min-height: 100vh;
+  min-width: 320px;
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
@@ -65,15 +60,15 @@ h1 {
 }
 
 button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
   background-color: var(--button-background);
+  border: 1px solid transparent;
+  border-radius: 8px;
   color: var(--button-text);
   cursor: pointer;
+  font-family: inherit;
+  font-size: 1em;
+  font-weight: 500;
+  padding: 0.6em 1.2em;
   transition: border-color 0.25s, background-color 0.25s, color 0.25s;
 }
 
@@ -86,14 +81,23 @@ button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
-/* OS preference fallbacks are less critical now JS controls theme classes */
-/* but can be kept for no-JS scenarios or initial paint */
 @media (prefers-color-scheme: dark) {
   body:not(.light-theme):not(.dark-theme) {
-    /* Only if no JS theme set */
     background: #121212;
     color: rgba(255, 255, 255, 0.87);
   }
+}
+
+.app-wrapper {
+  padding-bottom: 20px;
+  padding-top: 20px;
+}
+
+.theme-toggle-wrapper {
+  position: fixed;
+  right: 20px;
+  top: 20px;
+  z-index: 1000;
 }
 
 .container {
@@ -101,6 +105,6 @@ button:focus-visible {
   display: flex;
   height: 100svh;
   justify-content: center;
-  width: 45vmin;
   margin-bottom: 20px;
+  width: 45vmin;
 }

@@ -1,28 +1,24 @@
-import React, { type ReactNode } from 'react';
-import styles from './ArchClip.module.css';
+/** Arch-shaped clip-path component. */
+import type { FC } from 'react';
 
-interface ArchClipProps {
-  children: ReactNode;
-  className?: string; // Allow for additional custom styling
-}
+import type { ClipBaseProps } from './ClipBase';
+import ClipBase from './ClipBase';
 
-const ArchClip: React.FC<ArchClipProps> = ({ children, className }) => {
-  const clipPathId = "react-veil-arch-definition";
+/**
+ * Arch shape: two arcs forming the top, straight sides, and a flat bottom.
+ * M 0,0.333   — start at left, 1/3 down
+ * A → 0.5,0   — arc to top center
+ * A → 1,0.333 — arc to right, 1/3 down
+ * L 1,1 → 0,1 — straight edges along bottom
+ */
+const ARCH_SHAPE = {
+  clipPathId: 'react-veil-arch-definition',
+  pathData: 'M 0,0.333 A 0.5,0.333 0 0,1 0.5,0 A 0.5,0.333 0 0,1 1,0.333 L 1,1 L 0,1 Z',
+} as const;
 
-  return (
-    <>
-      <svg width="0" height="0" style={{ position: 'absolute', zIndex: -1, opacity: 0, pointerEvents: 'none' }} aria-hidden="true">
-        <defs>
-          <clipPath id={clipPathId} clipPathUnits="objectBoundingBox">
-            <path d="M 0,0.333 A 0.5,0.333 0 0,1 0.5,0 A 0.5,0.333 0 0,1 1,0.333 L 1,1 L 0,1 Z" />
-          </clipPath>
-        </defs>
-      </svg>
-      <div className={`${styles.archClipWrapper} ${className || ''}`.trim()}>
-        {children}
-      </div>
-    </>
-  );
-};
+/** Clips children into an arch shape. */
+const ArchClip: FC<ClipBaseProps> = (props) => (
+  <ClipBase shape={ARCH_SHAPE} {...props} />
+);
 
 export default ArchClip;
