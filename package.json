@@ -23,7 +23,7 @@
     "typecheck": "npm run typecheck --workspace=react-veil && npm run typecheck --workspace=docs"
   },
   "type": "module",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "workspaces": [
     "docs",
     "react-veil"
