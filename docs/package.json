@@ -2,7 +2,6 @@
   "dependencies": {
     "react": "^19.2.4",
     "react-dom": "^19.2.4",
-    "react-icons": "^5.5.0",
     "react-veil": "file:../react-veil"
   },
   "devDependencies": {
@@ -10,6 +9,7 @@
     "@types/react-dom": "^19.2.3",
     "@vitejs/plugin-react": "^6.0.1",
     "gh-pages": "^6.3.0",
+    "react-icons": "^5.6.0",
     "typescript": "^5.9.3",
     "vite": "^8.0.3"
   },
