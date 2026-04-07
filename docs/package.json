@@ -11,7 +11,7 @@
     "gh-pages": "^6.3.0",
     "react-icons": "^5.6.0",
     "typescript": "^5.9.3",
-    "vite": "^8.0.3"
+    "vite": "^8.0.5"
   },
   "homepage": "https://lafittemehdy.github.io/veil/",
   "name": "docs",
