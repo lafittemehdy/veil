@@ -15,14 +15,13 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6
+        uses: actions/checkout@v6
 
       - name: Setup Node.js
-        uses: actions/setup-node@a0853c24544627f65ddf259abe73b1d18a591444 # v5
+        uses: actions/setup-node@v6
         with:
-          cache: 'npm'
-          cache-dependency-path: package-lock.json
           node-version: 24.x
+          package-manager-cache: false
           registry-url: https://registry.npmjs.org
 
       - name: Upgrade npm (required for trusted publishing)
@@ -49,4 +48,5 @@ jobs:
         run: npm test
 
       - name: Publish with trusted publishing (OIDC)
-        run: cd react-veil && npm publish --provenance --access public
+        working-directory: react-veil
+        run: npm publish --access public
