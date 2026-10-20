@@ -1,5 +1,5 @@
 /** Shared base component for all SVG clip-path shapes. */
-import type { FC, ReactNode } from 'react';
+import { type FC, type ReactNode, useId } from 'react';
 
 import styles from './ClipBase.module.css';
 
@@ -27,27 +27,32 @@ const ClipBase: FC<ClipBaseProps & { shape: ClipShapeConfig }> = ({
   children,
   className,
   shape,
-}) => (
-  <>
-    <svg
-      aria-hidden="true"
-      height="0"
-      style={{ opacity: 0, pointerEvents: 'none', position: 'absolute', zIndex: -1 }}
-      width="0"
-    >
-      <defs>
-        <clipPath clipPathUnits="objectBoundingBox" id={shape.clipPathId}>
-          <path d={shape.pathData} />
-        </clipPath>
-      </defs>
-    </svg>
-    <div
-      className={`${styles.clipWrapper} ${className || ''}`.trim()}
-      style={{ clipPath: `url(#${shape.clipPathId})` }}
-    >
-      {children}
-    </div>
-  </>
-);
+}) => {
+  const instanceId = useId();
+  const clipPathId = `${shape.clipPathId}-${instanceId}`;
+
+  return (
+    <>
+      <svg
+        aria-hidden="true"
+        height="0"
+        style={{ opacity: 0, pointerEvents: 'none', position: 'absolute', zIndex: -1 }}
+        width="0"
+      >
+        <defs>
+          <clipPath clipPathUnits="objectBoundingBox" id={clipPathId}>
+            <path d={shape.pathData} />
+          </clipPath>
+        </defs>
+      </svg>
+      <div
+        className={`${styles.clipWrapper} ${className || ''}`.trim()}
+        style={{ clipPath: `url(#${clipPathId})` }}
+      >
+        {children}
+      </div>
+    </>
+  );
+};
 
 export default ClipBase;

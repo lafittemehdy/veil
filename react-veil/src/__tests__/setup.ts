@@ -1,4 +1,4 @@
 /**
  * Shared testing-library setup for Vitest.
  */
-import '@testing-library/jest-dom';
+import '@testing-library/jest-dom/vitest';

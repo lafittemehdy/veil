@@ -1,27 +1,24 @@
 {
   "dependencies": {
-    "react": "^19.2.6",
-    "react-dom": "^19.2.6",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1",
     "react-veil": "file:../react-veil"
   },
   "devDependencies": {
-    "@types/react": "^19.2.14",
-    "@types/react-dom": "^19.2.3",
-    "@vitejs/plugin-react": "^6.0.2",
-    "gh-pages": "^6.3.0",
-    "react-icons": "^5.6.0",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "@vitejs/plugin-react": "^6.1.2",
+    "react-icons": "^5.7.0",
     "typescript": "^6.0.3",
-    "vite": "^8.0.13"
+    "vite": "^8.3.4"
   },
   "homepage": "https://lafittemehdy.github.io/veil/",
   "name": "docs",
   "private": true,
   "scripts": {
     "build": "vite build",
-    "deploy": "gh-pages -d dist",
     "dev": "vite",
     "lint": "eslint .",
-    "predeploy": "npm run build",
     "preview": "vite preview",
     "typecheck": "tsc --noEmit"
   },

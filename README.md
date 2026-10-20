@@ -1,5 +1,5 @@
 # Veil Monorepo
-[![pages-build-deployment](https://github.com/lafittemehdy/veil/actions/workflows/pages/pages-build-deployment/badge.svg?branch=main)](https://github.com/lafittemehdy/veil/actions/workflows/pages/pages-build-deployment)
+[![CI](https://github.com/lafittemehdy/veil/actions/workflows/ci.yml/badge.svg)](https://github.com/lafittemehdy/veil/actions/workflows/ci.yml)
 
 Hi there! This is the main spot for the Veil project.
 
@@ -13,7 +13,20 @@ It's a monorepo that currently holds:
 
 ## Getting Around
 
-This project uses npm workspaces.
+Use Node.js 22.22.2+, 24.15+, or 26+ with npm 12.2.0. Run `npm ci` at
+the repository root; one root lockfile owns both npm workspaces. TypeScript
+remains on 6.0.3, the newest release supported by the ESLint TypeScript parser.
+
+Run `npm run check` for library and docs builds, lint, type checks, and tests.
+`npm audit --audit-level=high` and `npm pack --workspace=react-veil --dry-run`
+match the additional CI checks.
+
+Clips use React `useId` so multiple instances and server hydration retain
+independent definitions. For multiple independent React roots, use distinct
+`identifierPrefix` values in your React root options.
+
+Deploy the committed `main` branch with `gh workflow run pages.yml` or the
+Pages workflow in GitHub Actions. Deployment no longer uses the `gh-pages` CLI.
 
 *   To work on the **documentation site**: `npm run dev --workspace=docs`
 *   To build the **component library**: `npm run build --workspace=react-veil`

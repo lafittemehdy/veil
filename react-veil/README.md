@@ -1,7 +1,7 @@
 # React Veil 🖼️
 
 [![npm version](https://badge.fury.io/js/react-veil.svg)](https://badge.fury.io/js/react-veil)
-[![pages-build-deployment](https://github.com/lafittemehdy/veil/actions/workflows/pages/pages-build-deployment/badge.svg?branch=main)](https://github.com/lafittemehdy/veil/actions/workflows/pages/pages-build-deployment)
+[![pages-build-deployment](https://github.com/lafittemehdy/veil/actions/workflows/pages.yml/badge.svg)](https://github.com/lafittemehdy/veil/actions/workflows/pages.yml)
 
 Simple React components for framing your images and videos with SVG clip-paths.
 
@@ -15,7 +15,7 @@ Simple React components for framing your images and videos with SVG clip-paths.
 *   `RoundedRectangleClip`
 *   `RoundedLeftClip`
 
-They're SVG-based, so they scale nicely and are lightweight. They use a `2:3` (portrait) aspect ratio by default.
+They're SVG-based, so they scale nicely and are lightweight. They use a `2:3` (portrait) aspect ratio by default. Each instance owns a unique clip ID, including during server rendering and hydration. When rendering multiple independent React roots, supply a distinct `identifierPrefix` for each root.
 
 ## Installation
 

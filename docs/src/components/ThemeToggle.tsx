@@ -1,5 +1,5 @@
 /** Light/dark theme toggle switch component. */
-import type { FC, KeyboardEvent } from 'react';
+import type { FC } from 'react';
 import { BsMoonFill, BsSunFill } from 'react-icons/bs';
 
 import type { Theme } from '../types';
@@ -17,33 +17,25 @@ interface ThemeToggleProps {
 const ThemeToggle: FC<ThemeToggleProps> = ({ onToggle, theme }) => {
   const isDark = theme === 'dark';
 
-  /** Triggers toggle on Enter or Space key press for keyboard accessibility. */
-  const handleKeyDown = (e: KeyboardEvent) => {
-    if (e.key === 'Enter' || e.key === ' ') {
-      onToggle();
-    }
-  };
-
   return (
-    <div
+    <button
       aria-checked={isDark}
       aria-label={isDark ? 'Switch to light theme' : 'Switch to dark theme'}
       className={`${styles.toggleTrack} ${isDark ? styles.dark : styles.light}`}
       onClick={onToggle}
-      onKeyDown={handleKeyDown}
       role="switch"
-      tabIndex={0}
+      type="button"
     >
-      <div className={`${styles.iconContainer} ${styles.iconLeft}`}>
+      <span className={`${styles.iconContainer} ${styles.iconLeft}`}>
         <BsSunFill className={`${styles.icon} ${styles.sunIcon}`} />
-      </div>
+      </span>
 
-      <div className={`${styles.toggleThumb} ${isDark ? styles.dark : ''}`} />
+      <span className={`${styles.toggleThumb} ${isDark ? styles.dark : ''}`} />
 
-      <div className={`${styles.iconContainer} ${styles.iconRight}`}>
+      <span className={`${styles.iconContainer} ${styles.iconRight}`}>
         <BsMoonFill className={`${styles.icon} ${styles.moonIcon}`} />
-      </div>
-    </div>
+      </span>
+    </button>
   );
 };
 

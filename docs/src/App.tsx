@@ -50,8 +50,8 @@ function App() {
   const [theme, setTheme] = useState<Theme>(getStoredTheme);
 
   useEffect(() => {
-    document.body.className = '';
-    document.body.classList.add(`${theme}-theme`);
+    document.body.classList.toggle('dark-theme', theme === 'dark');
+    document.body.classList.toggle('light-theme', theme === 'light');
 
     try {
       localStorage.setItem('app-theme', theme);

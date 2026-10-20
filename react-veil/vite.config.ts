@@ -19,7 +19,7 @@ export default defineConfig({
       formats: ['es', 'umd'],
       name: 'ReactVeil',
     },
-    rollupOptions: {
+    rolldownOptions: {
       external: [/^react(-dom)?(\/.*)?$/],
       output: {
         globals: {
