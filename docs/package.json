@@ -10,7 +10,7 @@
     "@vitejs/plugin-react": "^6.1.2",
     "react-icons": "^5.7.0",
     "typescript": "^6.0.3",
-    "vite": "^8.3.4"
+    "vite": "^8.3.5"
   },
   "homepage": "https://lafittemehdy.github.io/veil/",
   "name": "docs",
