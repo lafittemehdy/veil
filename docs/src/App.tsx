@@ -73,7 +73,8 @@ function App() {
       <div className="container">
         <ArchClip>
           <video
-            autoPlay
+            aria-label="Arch clipped video"
+            controls
             loop
             muted
             playsInline

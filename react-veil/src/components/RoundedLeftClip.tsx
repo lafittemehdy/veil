@@ -1,8 +1,8 @@
 /** Rounded-left clip-path component. */
 import type { FC } from 'react';
 
-import type { ClipBaseProps } from './ClipBase';
-import ClipBase from './ClipBase';
+import type { ClipBaseProps } from './ClipBase.js';
+import ClipBase from './ClipBase.js';
 
 /**
  * Rounded-left shape: flat top-left, rounded top-right and bottom-right curves.

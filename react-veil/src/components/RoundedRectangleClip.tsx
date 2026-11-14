@@ -1,8 +1,8 @@
 /** Rounded-rectangle clip-path component. */
 import type { FC } from 'react';
 
-import type { ClipBaseProps } from './ClipBase';
-import ClipBase from './ClipBase';
+import type { ClipBaseProps } from './ClipBase.js';
+import ClipBase from './ClipBase.js';
 
 /**
  * Rounded-rectangle shape: flat left side, rounded right-side curves.

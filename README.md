@@ -37,3 +37,7 @@ Check out the `package.json` in the root and in each workspace for more scripts.
 ---
 
 That's pretty much it. Feel free to explore!
+
+## Community
+
+See [Contributing](CONTRIBUTING.md), [Code of Conduct](CODE_OF_CONDUCT.md), and [Security Policy](SECURITY.md).

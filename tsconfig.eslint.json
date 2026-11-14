@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "allowJs": true,
     "jsx": "react-jsx",
     "module": "ESNext",
     "moduleResolution": "bundler",
@@ -8,6 +9,7 @@
     "strict": true
   },
   "include": [
+    "scripts",
     "docs/src",
     "docs/vite.config.ts",
     "react-veil/src",

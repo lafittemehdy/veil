@@ -1,8 +1,8 @@
 /** Arch-shaped clip-path component. */
 import type { FC } from 'react';
 
-import type { ClipBaseProps } from './ClipBase';
-import ClipBase from './ClipBase';
+import type { ClipBaseProps } from './ClipBase.js';
+import ClipBase from './ClipBase.js';
 
 /**
  * Arch shape: two arcs forming the top, straight sides, and a flat bottom.
